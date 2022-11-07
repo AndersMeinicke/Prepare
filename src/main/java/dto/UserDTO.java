@@ -6,6 +6,6 @@ public class UserDTO {
 
     public UserDTO(String username, String password) {
         this.username = username;
-        this.password = password;
+        this.password = BCrypt.hashpw(password,BCrypt.gensalt());
     }
 }

@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="jokeFetcher-1.war">
+    <root id="archive" name="devops-starter-1.0.1.war">
       <element id="artifact" artifact-name="jokeFetcher:war exploded" />
     </root>
   </artifact>
