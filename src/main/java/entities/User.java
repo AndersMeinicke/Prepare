@@ -3,14 +3,7 @@ package entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.mindrot.jbcrypt.BCrypt;
@@ -19,12 +12,18 @@ import org.mindrot.jbcrypt.BCrypt;
 @Table(name = "users")
 public class User implements Serializable {
 
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull
+    @Column(name = "user_id")
+    private int id;
+    @Basic(optional = false)
     @NotNull
     @Column(name = "username", length = 25)
-    private String username;
+    private String userName;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
@@ -55,18 +54,25 @@ public class User implements Serializable {
     }
 
     public User(String username, String password) {
-        this.username = username;
+        this.userName = username;
 
         this.password = BCrypt.hashpw(password,BCrypt.gensalt());
     }
 
-
-    public String getUsername() {
-        return username;
+    public int getId() {
+        return id;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String username) {
+        this.userName = username;
     }
 
     public String getPassword() {

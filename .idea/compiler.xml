@@ -6,15 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="jokeFetcher" />
+        <module name="devops-starter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="devops-starter" target="1.8" />
       <module name="jokeFetcher" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="devops-starter" options="-endorseddirs C:\Users\ander\IdeaProjects\EksamenForberedelser\target/endorsed" />
       <module name="jokeFetcher" options="-endorseddirs C:\Users\ander\IdeaProjects\CASteal\target/endorsed" />
     </option>
   </component>

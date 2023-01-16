@@ -28,8 +28,9 @@ public class Role implements Serializable {
     @Column(name = "role_name", length = 20)
     private String roleName;
 
+    @NotNull
     @ManyToMany(mappedBy = "roleList")
-    private List<User> userList;
+    private List<User> userList = new java.util.ArrayList<>();
 
     public Role() {
     }
